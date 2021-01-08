@@ -1,3 +1,5 @@
+import 'package:meta/meta.dart';
+
 import '../utils/hash.dart';
 
 part 'algebra.dart';
@@ -125,6 +127,23 @@ class _Comparison extends _InfixOperator<bool> {
 
   /// Like [Comparison(left, op, right)], but uses [_ComparisonOperator.equal].
   _Comparison.equal(this.left, this.right) : op = _ComparisonOperator.equal;
+}
+
+class _UnaryMinus<DT> extends Expression<DT> {
+  final Expression<DT> inner;
+
+  _UnaryMinus(this.inner);
+
+  @override
+  Precedence get precedence => Precedence.unary;
+
+  @override
+  int get hashCode => inner.hashCode * 5;
+
+  @override
+  bool operator ==(dynamic other) {
+    return other is _UnaryMinus && other.inner == inner;
+  }
 }
 
 ///

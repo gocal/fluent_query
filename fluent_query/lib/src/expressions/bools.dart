@@ -26,12 +26,6 @@ class _NotExpression extends Expression<bool> {
   Precedence get precedence => Precedence.unary;
 
   @override
-  void writeInto(GenerationContext context) {
-    context.buffer.write('NOT ');
-    writeInner(context, inner);
-  }
-
-  @override
   int get hashCode => inner.hashCode << 1;
 
   @override

@@ -90,18 +90,6 @@ class _BetweenExpression extends Expression<bool> {
       this.not = false});
 
   @override
-  void writeInto(GenerationContext context) {
-    writeInner(context, target);
-
-    if (not) context.buffer.write(' NOT');
-    context.buffer.write(' BETWEEN ');
-
-    writeInner(context, lower);
-    context.buffer.write(' AND ');
-    writeInner(context, higher);
-  }
-
-  @override
   int get hashCode => $mrjf($mrjc(target.hashCode,
       $mrjc(lower.hashCode, $mrjc(higher.hashCode, not.hashCode))));
 
