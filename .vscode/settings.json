@@ -1,0 +1,6 @@
+{
+    "dart.flutterSdkPaths": [
+        "~/fvm/versions/"
+    ],
+    "dart.flutterSdkPath": "~/versions/stable"
+}

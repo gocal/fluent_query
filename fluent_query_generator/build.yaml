@@ -1,0 +1,9 @@
+builders:
+  fluent_query:
+    target: ":fluent_query_generator"
+    import: "package:fluent_query_generator/fluent_query_generator.dart"
+    builder_factories: ["fluent_query"]
+    build_extensions: { ".dart": [".g.part"] }
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
